@@ -16,14 +16,16 @@ public class MergeSort {
     }
 
     private static void merge(int[] arr, int low, int high, int[] temp) {
-        //System.out.println("low:"+low+ " high:"+high);
-        int mid = (low + high) / 2;
-      //  IntStream.rangeClosed(low, high).forEach(index -> System.out.println(arr[index]));
+        int mid = (low + (high-low)/2);
+
+        //  IntStream.rangeClosed(low, high).forEach(index -> System.out.println(arr[index]));
         System.out.println("****************************");
         if (low < high) {
+            System.out.println("low:"+low+ " high:"+high + " mid:"+mid);
+
             merge(arr, low, mid, temp);
             merge(arr, mid + 1, high, temp);
-            mergeParts(arr, low, mid, high, temp);
+            //mergeParts(arr, low, mid, high, temp);
         }
 
     }

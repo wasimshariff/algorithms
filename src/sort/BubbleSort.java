@@ -12,14 +12,20 @@ public class BubbleSort {
         int k = arr.length-1;
         int temp;
         int swaps = 0;
+        boolean sorted = true;
         while ( k >= 0) {
-            for( int i =0,j =1 ; i < j && j <= k ; i++,j++  ) {
-                if( arr[i] > arr[j]) {
-                   temp = arr[i];
-                   arr[i] = arr[j];
-                   arr[j] = temp;
+            sorted = true;
+            for( int i =0 ; i <= k-1 ; i++  ) {
+                if( arr[i] > arr[i+1]) {
+                   temp = arr[i+1];
+                   arr[i+1] = arr[i];
+                   arr[i] = temp;
                     swaps++;
+                    sorted = false;
                 }
+            }
+            if (sorted) {
+                break;
             }
             k--;
         }
